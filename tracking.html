@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo-section">
+            <h2>SITTA UT</h2>
+            <p>Sistem Bahan Ajar</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="stok.html">
+                        <i class="fas fa-book"></i> Informasi Bahan Ajar
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="tracking.html">
+                        <i class="fas fa-truck"></i> Tracking Pengiriman
+                    </a>
+                </li>
+        
+                <!-- Menu Laporan -->
+                <li class="subnav">
+                    <span>
+                       Laporan
+                    </span>
+        
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-search"></i>
+                                Monitoring Progress DO Bahan Ajar
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-book"></i>
+                                Rekap Bahan Ajar
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <a href="#">
+                        <i class="fas fa-box-open"></i>
+                        Histori Transaksi Bahan Ajar
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </aside>
+    <main class="main-content">
+
+<div class="tracking-container">
+
+    <!-- Header -->
+    <div class="tracking-header">
+        <h1><i class="fas fa-truck"></i> Tracking Pengiriman</h1>
+        <p>Cek status distribusi bahan ajar Universitas Terbuka</p>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input 
+            type="text" 
+            id="nomorDO" 
+            placeholder="Masukkan Nomor Delivery Order"
+        >
+
+        <button onclick="cariTracking()">
+            <i class="fas fa-search"></i> Cari
+        </button>
+    </div>
+
+    <!-- Result -->
+    <div id="hasilTracking" class="tracking-result">
+        <div class="empty-state">
+            <i class="fas fa-box-open"></i>
+            <h3>Belum ada pencarian</h3>
+            <p>Masukkan nomor DO untuk melihat status pengiriman</p>
+        </div>
+    </div>
+
+</div>
+    </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/tracking.js"></script>
+
+</body>
+</html>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f7fb;
+}
+
+.tracking-container{
+    max-width:1000px;
+    margin:auto;
+    padding:30px;
+}
+
+.tracking-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tracking-header h1{
+    color:#005BAC;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:400px;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.search-box button{
+    background:#005BAC;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.tracking-result{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.empty-state{
+    text-align:center;
+    color:gray;
+}
+
+.empty-state i{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.timeline-item{
+    border-left:3px solid #005BAC;
+    padding-left:20px;
+    margin-bottom:20px;
+}
+
+.status-badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    color:white;
+    font-size:12px;
+}
+
+.status-perjalanan{
+    background:orange;
+}
+
+.status-selesai{
+    background:green;
+}
+
+.status-dikirim{
+    background:#005BAC;
+}
+</style>

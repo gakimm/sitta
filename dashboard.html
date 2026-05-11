@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <h2>SITTA UT</h2>
+            <p>Sistem Bahan Ajar</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="stok.html">
+                        <i class="fas fa-book"></i> Informasi Bahan Ajar
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="tracking.html">
+                        <i class="fas fa-truck"></i> Tracking Pengiriman
+                    </a>
+                </li>
+        
+                <!-- Menu Laporan -->
+                <li class="subnav">
+                    <span>
+                       Laporan
+                    </span>
+        
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-search"></i>
+                                Monitoring Progress DO Bahan Ajar
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-book"></i>
+                                Rekap Bahan Ajar
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <a href="#">
+                        <i class="fas fa-box-open"></i>
+                        Histori Transaksi Bahan Ajar
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <div class="welcome-card">
+            <h2 id="greeting"></h2>
+            <h3>Selamat datang, <span id="username"></span></h3>
+            <p>Role: <span id="role"></span></p>
+        </div>
+
+        <!-- Statistik -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-box"></i>
+                <h3 id="totalStok">0</h3>
+                <p>Total Stok Buku</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3 id="totalUser">0</h3>
+                <p>Total Pengguna</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3 id="totalTracking">0</h3>
+                <p>Pengiriman Aktif</p>
+            </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="quick-access">
+            <h2>Quick Access</h2>
+            <div class="quick-grid">
+                <a href="stok.html" class="quick-card">
+                    <i class="fas fa-book"></i>
+                    <span>Kelola Stok</span>
+                </a>
+
+                <a href="tracking.html" class="quick-card">
+                    <i class="fas fa-truck"></i>
+                    <span>Cek Tracking</span>
+                </a>
+
+                <a href="#" class="quick-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Lihat Laporan</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

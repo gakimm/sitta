@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok Bahan Ajar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <h2>SITTA UT</h2>
+            <p>Sistem Bahan Ajar</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="stok.html">
+                        <i class="fas fa-book"></i> Informasi Bahan Ajar
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="tracking.html">
+                        <i class="fas fa-truck"></i> Tracking Pengiriman
+                    </a>
+                </li>
+        
+                <!-- Menu Laporan -->
+                <li class="subnav">
+                    <span>
+                       Laporan
+                    </span>
+        
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-search"></i>
+                                Monitoring Progress DO Bahan Ajar
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-book"></i>
+                                Rekap Bahan Ajar
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <a href="#">
+                        <i class="fas fa-box-open"></i>
+                        Histori Transaksi Bahan Ajar
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </aside>
+    <main class="main-content">
+        <div class="stok-container">
+
+            <!-- Header -->
+            <div class="stok-header">
+                <div>
+                    <h1>Informasi Stok Bahan Ajar</h1>
+                    <p>Kelola data stok bahan ajar Universitas Terbuka</p>
+                </div>
+        
+                <div class="header-actions">
+                    <input type="text" id="searchInput" placeholder="Cari nama buku..." onkeyup="searchBook()">
+                    <button class="add-btn" onclick="openModal()">
+                        <i class="fas fa-plus"></i> Tambah Stok
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cover</th>
+                            <th>Kode Lokasi</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Buku</th>
+                            <th>Jenis</th>
+                            <th>Edisi</th>
+                            <th>Stok</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stokTable"></tbody>
+                </table>
+            </div>
+        
+        </div>
+    </main>
+</div>
+
+<!-- Modal Tambah -->
+<div id="modalTambah" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Tambah Stok Baru</h2>
+
+        <input id="kodeBarang" placeholder="Kode Barang">
+        <input id="namaBarang" placeholder="Nama Buku">
+        <input id="stokBaru" placeholder="Jumlah Stok">
+
+        <button onclick="tambahStok()">Simpan</button>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/stok.js"></script>
+
+</body>
+</html>
+
+<style>
+.stok-container{
+    padding:30px;
+}
+
+.stok-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header-actions{
+    display:flex;
+    gap:10px;
+}
+
+input{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.add-btn{
+    background:#005BAC;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.table-container{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#005BAC;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+}
+
+td img{
+    width:60px;
+    border-radius:8px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+.modal-content{
+    background:white;
+    width:400px;
+    margin:100px auto;
+    padding:20px;
+    border-radius:15px;
+}
+
+.close-btn{
+    float:right;
+    cursor:pointer;
+    font-size:24px;
+}
